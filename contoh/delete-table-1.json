@@ -1,0 +1,55 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "delete",
+    "upload": false,
+    "join": false,
+    "createDataOffline": true
+  },
+  "create":[
+    {
+      "table": "history_app",
+      "data": {
+        "date": "24-05-1989",
+        "description": "test"
+      },
+      "condition": {
+        "read": false
+      }
+    },
+    {
+      "table": "recycle_bin",
+      "data": {
+        "recycleData": "24-05-1989"
+      },
+      "condition": {
+        "read": false
+      }
+    } 
+  ],
+  "delete":[
+    {
+      "table": "privilege",
+      "tableId": {
+        "name": "privilegeId",
+        "data": 1
+      },
+      "condition": {
+        "read": true
+      },
+      "response": "response-delete-privilege"
+    }  
+  ],
+  "read": {
+    "table": "privilege",
+    "response": "response-read-privilege"
+  },
+  "uploadOffline": {
+    "filePath": "dksdjksjd"
+  },
+  "upload": {
+    "filePath": "dksdjksjd",
+    "selectedFile": "dkshdkshdk",
+    "beforeImage": "ddhsjdhsjdhs"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "add",
+    "upload": false,
+    "join": false,
+    "createDataOffline": true
+  },
+  "create":[
+    {
+      "table": "privilege",
+      "data": {
+        "name": "manager"
+      },
+      "condition": {
+        "read": true,
+        "insertId": true
+      },
+      "response": "response-add-privilege"
+    },
+    {
+      "table": "history_app",
+      "data": {
+        "date": "04-04-1989",
+        "description": "Add Privilege"
+      },
+      "condition": {
+        "read": false,
+        "insertId": true,
+        "processAddJoin": true
+      },
+      "response": "response-add-history-app",
+      "result": null,
+      "sendCreateJoinId": {
+        "key": 0,
+        "name": "historyAppId"
+      }
+    }
+  ],
+  "createJoinId": [
+    {
+      "table": "history_profile",
+      "data": {
+        "profileId": 1
+      },
+      "condition": {
+        "read": false,
+        "insertId": false
+      },
+      "response": "response-add-history-profile"
+    }
+  ],
+  "read": {
+    "table": "privilege",
+    "response": "response-read-privilege"
+  },
+  "uploadOffline": {
+    "filePath": "privilege.json"
+  },
+  "upload": {
+    "filePath": "tetete",
+    "selectedFile": "dddddd"
+  }
+}

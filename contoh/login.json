@@ -1,0 +1,17 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "login",
+    "upload": false,
+    "join": true
+  },
+  "readById": {
+    "table": "auth_profile_privilege",
+    "tableId": {
+      "name": "username = ? AND password = ?",
+      "data": ["burger", 123]
+    },
+    "joinTable": "JOIN auth ON auth.authId = auth_profile_privilege.authId JOIN profile ON profile.profileId = auth_profile_privilege.profileId JOIN privilege ON privilege.privilegeId = auth_profile_privilege.privilegeId",
+    "response": "response-read-by-id-privilege"
+  }
+}

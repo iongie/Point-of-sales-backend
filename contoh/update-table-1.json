@@ -1,0 +1,47 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "update",
+    "upload": false,
+    "join": false,
+    "createDataOffline": true
+  },
+  "create":[
+    {
+      "table": "history_app",
+      "data": {
+        "date": "24-05-1989",
+        "description": "test"
+      },
+      "condition": {
+        "read": false
+      }
+    }  
+  ],
+  "update":[
+    {
+      "table": "privilege",
+      "tableId": {
+        "name": "privilegeId",
+        "data": 1
+      },
+      "data": "name='gigih'",
+      "condition": {
+        "read": true
+      },
+      "response": "response-update-privilege"
+    }  
+  ],
+  "read": {
+    "table": "privilege",
+    "response": "response-read-privilege"
+  },
+  "uploadOffline": {
+    "filePath": "tetete"
+  },
+  "upload": {
+    "filePath": "tetete",
+    "selectedFile": "dddddd",
+    "beforeImage": "wffaafaf"
+  }
+}

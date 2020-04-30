@@ -1,0 +1,16 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "read-by-id",
+    "upload": false,
+    "join": false
+  },
+  "readById": {
+    "table": "privilege",
+    "tableId": {
+      "name": "privilegeId= ?",
+      "data": 3
+    },
+    "response": "response-read-by-id-privilege"
+  }
+}

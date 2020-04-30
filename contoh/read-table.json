@@ -1,0 +1,12 @@
+{
+  "numberOfTable": 1,
+  "action": {
+    "table": "read",
+    "upload": false,
+    "join": false
+  },
+  "read": {
+    "table": "privilege",
+    "response": "response-read-privilege"
+  }
+}

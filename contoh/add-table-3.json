@@ -1,0 +1,78 @@
+{
+  "numberOfTable": 3,
+  "action": {
+    "table": "add",
+    "upload": false,
+    "join": true,
+    "createDataOffline": true
+  },
+  "create":[
+    {
+      "table": "auth",
+      "data": {
+        "username": "burger",
+        "password": "123"
+      },
+      "condition": {
+        "read": false
+      },
+      "response": null,
+      "resultId": "authId",
+      "result": null
+    } 
+  ],
+  "createOne":[
+    {
+      "table": "profile",
+      "data": {
+        "name": "gigih",
+        "email": "gigih985042@gmail.com",
+        "address": "jalan Pendidikan",
+        "image": "placeholder.jpg"
+      },
+      "condition": {
+        "read": false
+      },
+      "response": null,
+      "resultId": "profileId",
+      "result": null
+    } 
+  ],
+  "createLast":[
+    {
+      "table": "auth_profile_privilege",
+      "data": {
+        "privilegeId": 2
+      },
+      "condition": {
+        "read": true
+      },
+      "response": "response-add-privilege",
+      "result": null
+    } ,
+    {
+      "table": "history_app",
+      "data": {
+        "date": "24-05-1989",
+        "description": "test"
+      },
+      "condition": {
+        "read": false
+      },
+      "response": "response-add-privilege",
+      "result": null
+    }  
+  ],
+  "read": {
+    "table": "privilege",
+    "response": "response-read-privilege",
+    "joinTable": "JOIN auth ON auth.id = auth_profile_privilege.authId JOIN privilege ON privilege.privilegeId = auth_profile_privilege.privilegeId JOIN profile ON profile.profileId = auth_profile_privilege.profileId"
+  },
+  "uploadOffline": {
+    "filePath": "auth"
+  },
+  "upload": {
+    "filePath": "tetete",
+    "selectedFile": "dddddd"
+  }
+}
