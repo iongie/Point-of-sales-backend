@@ -8,7 +8,6 @@ module.exports = function (socket, dataofClient) {
       if(dataofClient.action.createDataOffline == true){
         let dataOffline = JSON.stringify(result);
         fs.writeFile('data-offline/'+dataofClient.uploadOffline.filePath, dataOffline, (res) => { 
-          // console.log(res);
         });
       }
       
@@ -27,7 +26,6 @@ module.exports = function (socket, dataofClient) {
       if(dataofClient.action.createDataOffline == true){
         let dataOffline = JSON.stringify(result);
         fs.writeFile('data-offline/'+dataofClient.uploadOffline.filePath, dataOffline, (res) => { 
-          console.log(res);
         });
       }
       

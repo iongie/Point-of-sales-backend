@@ -15,7 +15,6 @@ module.exports = function (socket, dataofClient) {
         if(dataofClient.upload.beforeImage && dataofClient.upload.beforeImage !== 'placeholder.jpg'){
           let file = path.join('image/'+dataofClient.upload.beforeImage);
           fs.unlink(file, (err) => {
-            console.log('File deleted!');
           })
         }
       }
@@ -53,16 +52,26 @@ module.exports = function (socket, dataofClient) {
         "= "+
         x.tableId.data, function (err, result, fields) {
       if (result.affectedRows > 0) {
-        console.log(result.affectedRows);
+        if(x.toast.type == 'delete'){
+          let data = {
+            response: 'error',
+            message: x.toast.messageToastSuccess,
+            data: null
+          }
+          socket.emit(x.toast.name, data);
+        }
         if(x.condition.read == true) {
           readofTableOne(socket,dataofClient);
         }
       } else {
-        let data = {
-          response: 'error',
-          data: null
+        if(x.toast.type == 'delete'){
+          let data = {
+            response: 'error',
+            message: x.toast.messageToastError,
+            data: null
+          }
+          socket.emit(x.toast.name, data);
         }
-        socket.emit(x.response, data);
       }
     });
   });

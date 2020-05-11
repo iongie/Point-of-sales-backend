@@ -11,27 +11,41 @@ module.exports = function (socket, dataofClient) {
     }
   }
   dataofClient.create.map((x, i) => {
-    let tes = db.query("INSERT INTO "+
+    const tes = db.query("INSERT INTO "+
       x.table+
       " SET ?",x.data, function (err, result, fields) {
       if (result.affectedRows > 0) {
         if(x.condition.read == true) {
           readofTableOne(socket,dataofClient);
+        } 
+        if(x.toast.type == 'add-non-join'){
+          let data = {
+            response: 'success',
+            message: x.toast.messageToastSuccess,
+            insertId: result.insertId,
+            data: null
+          }
+          socket.emit(x.toast.name, data);
         }
         if(x.condition.insertId == true) {
             x.result = result.insertId;
-            if(x.condition.processAddJoin == true){
+            if(x.condition.processAddJoin == true){;
               addJoin(socket ,dataofClient, i);
             }
         }
       } else {
-        let data = {
-          response: 'error',
-          data: null
+        if(x.toast.type == 'add-non-join'){
+          let data = {
+            response: 'error',
+            message: x.toast.messageToastError,
+            insertId: null,
+            data: null
+          }
+          socket.emit(x.toast.name, data);
         }
-        socket.emit(x.response, data);
       }
     });
+
     console.log(tes);
     
   });
